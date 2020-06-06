@@ -112,27 +112,27 @@ int main(void)
 		HAL_UART_Receive(&huart1, rxBuffer, BUFFERSIZE, 10000);
 
 		// Type changing
-		for(i=0;i<BUFFERSIZE;i++) {
-			temp_q15_Buffer[i*2+1]=(uint8_t)rxBuffer[i]&0xFF;
-			temp_q15_Buffer[i*2]=(uint8_t)rxBuffer[i]>>8;
-		}
+//		for(i=0;i<BUFFERSIZE;i++) {
+//			temp_q15_Buffer[i*2+1]=(uint8_t)rxBuffer[i]&0xFF;
+//			temp_q15_Buffer[i*2]=(uint8_t)rxBuffer[i]>>8;
+//		}
 
-		for (i = 0; i < BUFFERSIZE; i++) {
-			f_tempBuffer[i] = (float32_t) temp_q15_Buffer[i] / 32768;
-		}
+//		for (i = 0; i < BUFFERSIZE; i++) {
+//			f_tempBuffer[i] = (float32_t) temp_q15_Buffer[i] / 32768;
+//		}
 
-		arm_q15_to_float(temp_q15_Buffer, f_tempBuffer, BUFFERSIZE);
+//		arm_q15_to_float(temp_q15_Buffer, f_tempBuffer, BUFFERSIZE);
 
 		// Copy the data to the transmisor buffer
-		for (i = 0; i < 2; i++) {
-			txdata[i]=rxdata[i];
-		}
+//		for (i = 0; i < 2; i++) {
+//			txdata[i]=rxdata[i];
+//		}
 
-		txdata[0]='0';
+//		txdata[0]='0';
 
 		i=0;
 
-		HAL_UART_Transmit(&huart1, txdata, 5, 1000);
+//		HAL_UART_Transmit(&huart1, txdata, 5, 1000);
 	}
 	/* USER CODE END 3 */
 }
