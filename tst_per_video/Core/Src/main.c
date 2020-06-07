@@ -19,12 +19,14 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#define ARM_MATH_CM4
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+#include "main.h"
 #include "arm_math.h"
 #include "coefficients.h"
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +49,6 @@
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-//uint8_t rxBuffer[BUFFERSIZE];
 uint8_t txBuffer[BUFFERSIZE];
 
 float32_t f_tempBuffer[BUFFERSIZE];
@@ -96,8 +97,6 @@ int main(void)
 	float32_t * currentCoef = left[0];
 
 	arm_fir_init_f32(&fir_0, 256, currentCoef, f_states, BUFFERSIZE);
-
-
 	/* USER CODE END 1 */
 
 	/* MCU Configuration--------------------------------------------------------*/
@@ -157,6 +156,7 @@ int main(void)
 		i=0;
 
 //		HAL_UART_Transmit(&huart1, txdata, 5, 1000);
+
 	}
 	/* USER CODE END 3 */
 }
